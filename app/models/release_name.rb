@@ -14,6 +14,7 @@ class ReleaseName < ActiveRecord::Base
   
   def origin(depth=3)
     hash = self.release_groups.first.response(depth)
+    NodeTools::set_origin_height(hash)
   end
   
   def to_s
