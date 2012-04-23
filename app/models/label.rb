@@ -4,4 +4,9 @@ class Label < ActiveRecord::Base
   belongs_to :label_type 
   has_many :release_labels, :foreign_key=>"label"
   has_many :releases, :through=>:release_labels
+  
+  def color
+    "green"
+  end
+  
 end
