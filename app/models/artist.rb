@@ -15,25 +15,28 @@ class Artist < ActiveRecord::Base
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new
-    self.band_memberships.each do |band_membership|
-      self.adjacencies << self.make_adjacency(band_membership.band)
-      self.other_nodes << self.make_node(band_membership.band)
+    if depth > 0
+      self.iterate(self.band_memberships, (depth-1), "band")
+      self.iterate(self.talent_memberships, (depth-1), "member")
+      self.iterate(self.name.credit.release_groups, (depth-1))
+      
+      #broke apart into two lines to stop traversing the chain twice
+      #release_groups = self.name.credit.release_groups                     #faster i think
+      #self.iterate(release_groups, (depth-1)) unless release_groups.blank? #faster i think
     end
-    
-    self.talent_memberships.each do |talent_membership|
-      self.adjacencies << self.make_adjacency(talent_membership.member)
-      self.other_nodes << self.make_node(talent_membership.band)
-    end
-    
-    self.name.credit.release_groups.each do |release_group|
-      self.adjacencies << self.make_adjacency(release_group)
-      self.other_nodes << self.make_node(release_group)
-    end
-    
     self.data+self.other_nodes
   end
   
-
+  def color
+    case self.artist_type_id
+    when 1
+      "red"
+    when 2
+      "purple"
+    else
+      "white"
+    end
+  end
   
   def type
     self.artist_type.to_s

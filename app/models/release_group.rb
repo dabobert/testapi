@@ -10,14 +10,13 @@ class ReleaseGroup < ActiveRecord::Base
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new
-    self.releases.each do |release|
-      self.adjacencies << self.make_adjacency(release)
-      self.other_nodes << self.make_node(release)
-    end
-    
+    self.iterate(self.releases, (depth-1)) if depth > 0
     self.data+self.other_nodes
   end
   
+  def color
+    "blue"
+  end
   
   def type
     "project"

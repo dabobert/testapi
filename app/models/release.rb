@@ -1,4 +1,6 @@
 class Release < ActiveRecord::Base
+  include NodeTools
+  
   set_table_name :release
   belongs_to :artist_credit, :foreign_key=>"artist_credit"
   belongs_to :name, :class_name=>"ReleaseName", :foreign_key=>'name'
@@ -13,13 +15,10 @@ class Release < ActiveRecord::Base
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new
-    
-    self.adjacencies << self.make_adjacency(self.release_group)
-    self.other_nodes << self.make_node(self.release_group)
-    
-    self.labels.each do |label|
-      self.adjacencies << self.make_adjacency(label)
-      self.other_nodes << self.make_node(label)
+    if depth > 0
+      self.adjacencies << self.make_adjacency(self.release_group)
+      self.other_nodes << self.make_node(self.release_group)
+      self.iterate(self.labels, (depth-1))
     end
 
     self.data+self.other_nodes

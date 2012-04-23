@@ -1,6 +1,12 @@
 module NodeTools
   attr_accessor :adjacencies, :other_nodes
   
+  
+  def color
+    "grey"
+  end
+  
+  
   def make_adjacency(obj)
     {
       :nodeFrom => self.gid,
@@ -9,7 +15,7 @@ module NodeTools
   end
   
   def make_node(obj)
-    {
+    {  
       :data =>
         {
           "$color"=> "blue", 
@@ -27,13 +33,28 @@ module NodeTools
       :adjacencies=>self.adjacencies,
       :data =>
         {
-          "$color"=> "blue", 
+          "$color"=> self.color, 
           "$dim"=> 8, 
-          "$type"=> "circle"
+          "$type"=> "circle",
+          :gcdm_type =>self.type,
         },
-      :type =>self.type,
       :id => self.gid,
       :name => self.name.to_s
     }]
   end
+  
+  def iterate(collection, depth=0, member_fn="")
+    collection.collect do |object|
+      if member_fn.blank?
+        obj = object
+      else
+        obj = object.instance_eval(member_fn)
+      end
+
+      self.adjacencies << self.make_adjacency(obj)
+      self.other_nodes += obj.response(depth-1).flatten
+    end
+  end
+  
+  
 end
