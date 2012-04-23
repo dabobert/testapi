@@ -11,7 +11,7 @@ class ReleaseGroup < ActiveRecord::Base
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new
-    self.iterate(self.barcoded_releases, (depth-1)) if depth > 0
+    #self.iterate(self.barcoded_releases, (depth-1)) if depth > 0
     self.data+self.other_nodes
   end
   

@@ -1,11 +1,12 @@
 module NodeTools
-  attr_accessor :adjacencies, :other_nodes
+  attr_accessor :adjacencies, :other_nodes  
+
   
-  
-  def color
-    "grey"
+  def origin(depth=4)
+    hash = self.response(depth)
+    hash[0][:data]["$dim"]=16
+    hash
   end
-  
   
   def make_adjacency(obj)
     {
@@ -56,5 +57,9 @@ module NodeTools
     end
   end
   
+  #sets default color to grey
+  def color
+    "grey"
+  end
   
 end
