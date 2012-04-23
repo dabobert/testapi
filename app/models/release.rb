@@ -7,4 +7,26 @@ class Release < ActiveRecord::Base
   has_many :labels, :through=>:release_labels
   has_many :mediums, :foreign_key=>'release'
   has_many :tracklists, :through=>:mediums
+  
+  
+
+  def response(depth=3)
+    @adjacencies  = Array.new
+    @other_nodes  = Array.new
+    
+    self.adjacencies << self.make_adjacency(self.release_group)
+    self.other_nodes << self.make_node(self.release_group)
+    
+    self.labels.each do |label|
+      self.adjacencies << self.make_adjacency(label)
+      self.other_nodes << self.make_node(label)
+    end
+
+    self.data+self.other_nodes
+  end
+
+  
+  def type
+    "product"
+  end
 end

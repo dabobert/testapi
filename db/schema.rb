@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420203206) do
+ActiveRecord::Schema.define(:version => 20120423140657) do
 
   create_table "annotation", :force => true do |t|
     t.integer  "editor",    :null => false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20120420203206) do
     t.string   "ipi_code",         :limit => 11
     t.integer  "edits_pending",                   :default => 0, :null => false
     t.datetime "last_updated"
+    t.boolean  "wmg_talent"
   end
 
   add_index "artist", ["gid"], :name => "artist_idx_gid", :unique => true
