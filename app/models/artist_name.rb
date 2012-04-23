@@ -17,8 +17,8 @@ class ArtistName < ActiveRecord::Base
     self.name
   end
   
-  def origin
-    hash = self.artist.response
+  def origin(depth=3)
+    hash = self.artist.response(depth)
   end
   
 end

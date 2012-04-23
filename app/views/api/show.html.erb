@@ -101,7 +101,7 @@
 
         function init() {
             // init data
-            var json = <%=@response %>
+            var json = <%= raw(@response.to_json) %>
 			
             // end
             // init ForceDirected

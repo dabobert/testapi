@@ -12,7 +12,9 @@ class ReleaseName < ActiveRecord::Base
     end
   end
   
-
+  def origin(depth=3)
+    hash = self.release_groups.first.response(depth)
+  end
   
   def to_s
     self.name
