@@ -2,6 +2,11 @@ module NodeTools
   attr_accessor :adjacencies, :other_nodes  
 
   
+  def set_origin_height(hash)
+    hash[0][:data]["$dim"]=16
+    hash
+  end
+  
   def origin(depth=4)
     hash = self.response(depth)
     hash[0][:data]["$dim"]=16
