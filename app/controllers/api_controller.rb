@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+  respond_to :html, :xml, :json
 
   def show
     if params[:depth].blank?
@@ -9,10 +10,10 @@ class ApiController < ApplicationController
     
     @object = ArtistName.seek(params[:id]) || ReleaseName.seek(params[:id])
     @response = @object.origin(depth)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json  { render :json => response.to_json }
-      format.xml  { render :xml => response }
+    respond_with(@response) do |format|
+      format.html
+      format.json { render :json => @response.to_json }
+      format.xml  { render :xml  => @response.to_xml }
     end
   end
 end
