@@ -1,10 +1,6 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
 development:
-  host: 10.139.235.137
+  host: 10.80.69.79#tier3
+  #host: 10.139.235.137 #macbook pro
   adapter: postgresql
   encoding: unicode
   database: musicbrainz_db

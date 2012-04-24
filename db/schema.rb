@@ -1078,11 +1078,6 @@ ActiveRecord::Schema.define(:version => 20120423140657) do
     t.string "name", :null => false
   end
 
-  create_table "release_group_types", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "release_label", :force => true do |t|
     t.integer  "release",        :null => false
     t.integer  "label"
@@ -1252,6 +1247,150 @@ ActiveRecord::Schema.define(:version => 20120423140657) do
 
   add_index "vote", ["edit"], :name => "vote_idx_edit"
   add_index "vote", ["editor"], :name => "vote_idx_editor"
+
+  create_table "wmg_artist", :id => false, :force => true do |t|
+    t.integer "artist_id"
+    t.string  "artist_name"
+    t.string  "country_of_origin", :limit => 3
+    t.string  "genre",             :limit => 20
+  end
+
+  create_table "wmg_asset", :id => false, :force => true do |t|
+    t.integer "id"
+    t.integer "artist_id"
+    t.integer "project_id"
+    t.string  "gaid",             :limit => 33
+    t.string  "gaid_type",        :limit => 10
+    t.string  "display_title"
+    t.string  "category",         :limit => 43
+    t.string  "type",             :limit => 40
+    t.string  "sub_type",         :limit => 40
+    t.string  "major_genre",      :limit => 40
+    t.string  "play_length",      :limit => 15
+    t.string  "repertoire_owner", :limit => 100
+  end
+
+  create_table "wmg_asset_work", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.string  "work_id",  :limit => 16
+  end
+
+  create_table "wmg_component", :id => false, :force => true do |t|
+    t.integer "id"
+    t.integer "parent_product_id"
+    t.integer "asset_id"
+    t.integer "unit_number"
+    t.integer "side"
+    t.integer "sequence"
+  end
+
+  create_table "wmg_contract", :id => false, :force => true do |t|
+    t.string  "contract_id",   :limit => 16
+    t.string  "contract_type", :limit => 30
+    t.string  "contract_name", :limit => 200
+    t.string  "start_date",    :limit => 20
+    t.string  "end_date",      :limit => 20
+    t.integer "entity_id"
+    t.string  "entity",        :limit => 20
+  end
+
+  create_table "wmg_product", :id => false, :force => true do |t|
+    t.integer "id"
+    t.integer "artist_id"
+    t.integer "project_id"
+    t.string  "gpid",                      :limit => 33
+    t.string  "gpid_type",                 :limit => 20
+    t.string  "display_title"
+    t.string  "category",                  :limit => 40
+    t.string  "type",                      :limit => 40
+    t.string  "sub_type",                  :limit => 40
+    t.string  "product_media_type",        :limit => 40
+    t.string  "major_genre",               :limit => 40
+    t.string  "first_global_release_date", :limit => 20
+    t.string  "marketing_owner",           :limit => 100
+  end
+
+  create_table "wmg_project", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.string  "contract_id",        :limit => 16
+    t.string  "project_nm",         :limit => 200
+    t.string  "first_release_date", :limit => 20
+    t.string  "budget",             :limit => 100
+    t.string  "financial_company",  :limit => 100
+    t.string  "profit_center",      :limit => 100
+  end
+
+  create_table "wmg_rights", :id => false, :force => true do |t|
+    t.integer "id"
+    t.string  "right_type",          :limit => 30
+    t.string  "permission_type",     :limit => 30
+    t.string  "grant_desc",          :limit => 50
+    t.string  "code",                :limit => 30
+    t.string  "effective_from_date", :limit => 30
+    t.string  "effective_to_date",   :limit => 30
+    t.string  "notes",               :limit => 50
+    t.string  "entity",              :limit => 50
+    t.string  "entity_id",           :limit => 33
+    t.string  "ownership_percetage", :limit => 30
+    t.string  "claim_percetage",     :limit => 30
+  end
+
+  create_table "wmg_rights_territories", :id => false, :force => true do |t|
+    t.string "code", :limit => 15
+    t.text   "name"
+  end
+
+  create_table "wmg_roles", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.string  "role_name", :limit => 30
+  end
+
+  create_table "wmg_social_media", :id => false, :force => true do |t|
+    t.integer "social_media_id"
+    t.string  "account_type",    :limit => 30
+    t.string  "account_id",      :limit => 130
+    t.integer "artist_id"
+    t.integer "talent_id"
+  end
+
+  create_table "wmg_talent", :id => false, :force => true do |t|
+    t.integer "participant_id"
+    t.string  "name"
+    t.string  "birthdate",      :limit => 30
+    t.string  "email",          :limit => 60
+    t.string  "home_phone",     :limit => 20
+    t.string  "business_phone", :limit => 30
+    t.string  "cell_phone",     :limit => 30
+    t.integer "address_id"
+  end
+
+  create_table "wmg_talent_role_identity", :id => false, :force => true do |t|
+    t.integer "id"
+    t.integer "talent_id"
+    t.integer "role_code"
+    t.string  "entity",    :limit => 30
+    t.string  "entity_id", :limit => 33
+  end
+
+  create_table "wmg_websites", :id => false, :force => true do |t|
+    t.integer "talent_website_id"
+    t.string  "url",               :limit => 130
+    t.string  "website_name",      :limit => 130
+    t.integer "talent_id"
+    t.integer "artist_id"
+  end
+
+  create_table "wmg_work", :id => false, :force => true do |t|
+    t.string  "id",                           :limit => 50
+    t.string  "contract_id",                  :limit => 16
+    t.integer "project_id"
+    t.string  "iswc",                         :limit => 30
+    t.string  "title"
+    t.string  "type",                         :limit => 30
+    t.integer "year"
+    t.string  "language",                     :limit => 30
+    t.string  "estimated_public_domain_date", :limit => 30
+  end
 
   create_table "work", :force => true do |t|
     t.string   "gid",           :limit => nil,                :null => false
