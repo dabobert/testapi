@@ -4,4 +4,13 @@ class Recording < ActiveRecord::Base
   belongs_to :artist_credit, :foreign_key=>"artist_credit"
   has_many :tracks, :foreign_key=>'recording'
   has_many :mediums, :through=>:tracks
+  
+  def self.seek(str)
+    results = self.where("lower(name) = lower(?)", str)
+    if results.blank?
+      nil
+    else
+      results.first
+    end
+  end
 end
