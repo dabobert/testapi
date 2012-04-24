@@ -13,8 +13,11 @@ class ReleaseName < ActiveRecord::Base
   end
   
   def origin(depth=3)
-    hash = self.release_groups.first.response(depth)
-    NodeTools::set_origin_height(hash)
+    release_group = self.release_groups.first
+    response      = release_group.response(depth)
+    response     += release_group.artist_credit.name.artist.talent_response(1)
+    response[0][:adjacencies] << release_group.make_adjacency(release_group.artist_credit.name.artist)
+    NodeTools::set_origin_height(response)
   end
   
   def to_s

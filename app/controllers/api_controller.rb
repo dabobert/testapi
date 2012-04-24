@@ -6,7 +6,7 @@ class ApiController < ApplicationController
     def show    
       respond_with(@response) do |format|
         format.html
-        format.json { render :json => @response.to_json }
+        format.json { render :json => @response.to_json, :callback=>params[:callback] }
         format.xml  { render :xml  => @response.to_xml }
       end
     end

@@ -22,6 +22,21 @@ class Artist < ActiveRecord::Base
     self.data+self.other_nodes
   end
   
+  def talent_response(depth=3)
+    @adjacencies  = Array.new
+    @other_nodes  = Array.new
+    if depth > 0
+      begin
+        #self.iterate(self.band_memberships, (depth-1), "band")
+        self.iterate(self.talent_memberships, (depth-1), "member")
+        #self.iterate(self.name.credit.release_groups, (depth-1))
+      rescue
+      end
+    end
+    self.data+self.other_nodes
+  end
+  
+  
   def color
     case self.artist_type_id
     when 1
@@ -34,7 +49,14 @@ class Artist < ActiveRecord::Base
   end
   
   def type
-    self.artist_type.to_s
+    case self.artist_type_id
+    when 1
+      "talent"
+    when 2
+      "artist"
+    else
+      "other"
+    end
   end
   
 end
