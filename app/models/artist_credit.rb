@@ -1,5 +1,5 @@
 class ArtistCredit < ActiveRecord::Base
-  set_table_name :artist_credit
+  self.table_name = :artist_credit
   belongs_to :name, :class_name=>'ArtistName', :foreign_key => 'name'
   has_many :releases, :foreign_key=>"artist_credit"
   has_many :barcoded_releases, :class_name=>"Release", :foreign_key=>"artist_credit", :conditions => "barcode is not null"

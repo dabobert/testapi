@@ -1,7 +1,7 @@
 class Release < ActiveRecord::Base
   include NodeTools
   
-  set_table_name :release
+  self.table_name = :release
   belongs_to :artist_credit, :foreign_key=>"artist_credit"
   belongs_to :name, :class_name=>"ReleaseName", :foreign_key=>'name'
   belongs_to :release_group, :foreign_key=>"release_group"

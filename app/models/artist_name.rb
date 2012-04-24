@@ -1,7 +1,7 @@
 class ArtistName < ActiveRecord::Base
   include NodeTools
   
-  set_table_name 'artist_name'
+  self.table_name = 'artist_name'
   has_one :artist, :foreign_key=>"name"
   has_one :credit, :class_name=>"ArtistCredit", :foreign_key=>"name"
   

@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   def color_response
     logger.debug "coloring response"
     @response[:data].each do |hash|
+      logger.debug hash[:id]
       hash[:data]["$color"] = "grey" unless params[:pinned_nodes].include?(hash[:id])
     end
+    logger.debug @response.inspect
   end
 
 
