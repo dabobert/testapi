@@ -30,8 +30,6 @@ class ApplicationController < ActionController::Base
     else
       render :text => "Explosion! Missing required parameters", :status => 500
     end
-    logger.debug data.inspect
-    logger.debug [@search_term, @depth, @pinned].inspect
   end
 
 

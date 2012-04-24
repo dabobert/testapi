@@ -10,7 +10,12 @@ class ArtistName < ActiveRecord::Base
     if results.blank?
       nil
     else
-      results.first
+      artist_name = results.first
+      if artist_name.artist.blank?
+        nil
+      else
+        artist_name
+      end
     end
   end
   
