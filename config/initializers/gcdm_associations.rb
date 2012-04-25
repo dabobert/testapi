@@ -17,12 +17,16 @@ module GcdmAssociations
     Kernel.const_get("Wmg#{entity}").find(self.entity_id)
   end
   
+  def type
+    self.gcdm_type.downcase
+  end
+  
+  def gid
+    "#{self.gcdm_type.downcase}#{self.id}"
+  end
+  
   def method_missing(method, *args, &block)
-    if method == :type
-      gcdm_type.downcase
-    elsif method == :gid
-      "#{gcdm_type.downcase}#{self.id}"
-    elsif self.respond_to? "entity"
+    if self.respond_to? "entity"
       return nil if self.entity != method.to_s.camelcase
       oo_entity
     else

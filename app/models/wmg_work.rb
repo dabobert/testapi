@@ -1,6 +1,6 @@
 class WmgWork < ActiveRecord::Base
-  include GcdmAssociations
   include NodeTools
+  include GcdmAssociations
   
   self.table_name = 'wmg_work'
   
