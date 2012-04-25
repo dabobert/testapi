@@ -20,6 +20,7 @@ module NodeTools
     }
   end
   
+  
   def make_node(obj)
     {  
       :data =>
@@ -41,7 +42,7 @@ module NodeTools
         {
           "$color"=> self.color, 
           "$dim"=> 8, 
-          "$type"=> "circle",
+          "$type"=> self.shape,
           :gcdm_type =>self.type,
         },
       :id => self.gid,
@@ -64,7 +65,19 @@ module NodeTools
   
   #sets default color to grey
   def color
-    "grey"
+    if UI_CONFIG[self.type].blank?
+      "grey"
+    else
+      UI_CONFIG[self.type]["color"]
+    end
+  end
+  
+  def shape
+    if UI_CONFIG[self.type].blank?
+      "circle"
+    else
+      UI_CONFIG[self.type]["shape"]
+    end
   end
   
 end

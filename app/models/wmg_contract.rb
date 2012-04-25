@@ -13,18 +13,22 @@ class WmgContract < ActiveRecord::Base
     self.contract_name
   end
   
+  def color
+    "yellow"
+  end
+  
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new
     if depth > 0
-      begin
+      #begin
         if (self.contract_type == "Recording")
           self.iterate(self.projects, (depth-1))
         else
           self.iterate(self.works, (depth-1))
         end
-      rescue
-      end
+      #rescue
+      #end
     end
     self.data+self.other_nodes
   end

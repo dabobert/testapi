@@ -1,0 +1,36 @@
+talent:
+  shape: circle
+  color: "#23A4FF"
+
+artist:
+  shape: square
+  color: "#E18D29"
+
+contract:
+  shape: square
+  color: "#66AA3E"
+
+project:
+  shape: triangle
+  color: "#5329E1"
+
+product:
+  shape: star
+  color: "9074E1"
+
+asset:
+  shape: circle
+  color: "FF5855"
+
+work:
+  shape: square
+  color: "E1CD5D"
+
+
+right:
+  shape: square
+  color: "66123E"
+    
+website:
+  shape: square
+  color: "grey"

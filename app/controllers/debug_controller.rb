@@ -17,7 +17,7 @@ class DebugController < ApplicationController
       {
         :status => "OK",
         :description => "descr",
-        :data => Debug.wmggd.response(3)
+        :data => Debug.wmgbja.origin(5)
       }
     respond_with(@response) do |format|
       format.html { render :template => "/api/show.html.erb" }

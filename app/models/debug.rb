@@ -17,5 +17,9 @@ class Debug
     WmgArtist.find(1077655)
   end
   
+  def self.wmgbja
+    WmgTalent.find(1044220)
+  end
+  
   
 end

@@ -22,15 +22,27 @@ class WmgArtist < ActiveRecord::Base
     self.contracts.where("contract_type like '%Pub%'")
   end
   
+  def origin(depth=3)
+    hash = self.response(depth)
+    NodeTools::set_origin_height(hash)
+  end
+  
+  def talents
+    @talents ||=  self.oo_talent_role_entities.select("talent_id").group("talent_id").collect do |tre|
+                    tre.talent
+                  end 
+  end
+  
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new
     if depth > 0
-      begin
+#      begin
         self.iterate(self.publishing_contracts, (depth-1))
         self.iterate(self.recording_contracts, (depth-1))
-      rescue
-      end
+        self.iterate(self.talents, (depth-1))
+# =>    rescue
+#      end
     end
     self.data+self.other_nodes
   end

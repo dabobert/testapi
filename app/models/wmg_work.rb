@@ -5,8 +5,12 @@ class WmgWork < ActiveRecord::Base
   self.table_name = 'wmg_work'
   
   belongs_to :contract, :class_name=>"WmgContract", :foreign_key=>"contract_id"
-  belongs_to :talent, :class_name=>"WmgTalent", :foreign_key=>"talent_id"
-  belongs_to :role, :class_name=>"WmgRole", :foreign_key=>"role_id"
+  
+  def response(depth=3)
+    @adjacencies  = Array.new
+    @other_nodes  = Array.new
+    self.data+self.other_nodes
+  end
   
   def name
     self.title
