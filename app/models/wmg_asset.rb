@@ -1,4 +1,6 @@
 class WmgAsset < ActiveRecord::Base
+  include GcdmAssociations
+  
   self.table_name = 'wmg_asset'
   
   belongs_to :project, :class_name=>"WmgProject"

@@ -4,6 +4,7 @@ class Artist < ActiveRecord::Base
   self.table_name = 'artist'
   belongs_to :name, :class_name=>'ArtistName', :foreign_key => 'name'
   belongs_to :artist_type
+  has_one :wmg_artist, :foreign_key=>"mb_id"
   has_many :band_memberships, :class_name=>"ArtistRelationship", :foreign_key=>'entity0', :conditions=>"link <> 6340"
   has_many :talent_memberships, :class_name=>"ArtistRelationship", :foreign_key=>'entity1', :conditions=>"link <> 6340"
 

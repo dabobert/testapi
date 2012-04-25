@@ -1,4 +1,6 @@
 class WmgProduct < ActiveRecord::Base
+  include GcdmAssociations
+  
   self.table_name = 'wmg_product'
   
   belongs_to :wmg_artist, :foreign_key=>"artist_id"
