@@ -38,17 +38,6 @@ class Artist < ActiveRecord::Base
   end
   
   
-  def color
-    case self.artist_type_id
-    when 1
-      "red"
-    when 2
-      "purple"
-    else
-      "white"
-    end
-  end
-  
   def type
     case self.artist_type_id
     when 1

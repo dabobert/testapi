@@ -5,8 +5,4 @@ class Label < ActiveRecord::Base
   has_many :release_labels, :foreign_key=>"label"
   has_many :releases, :through=>:release_labels
   
-  def color
-    "green"
-  end
-  
 end

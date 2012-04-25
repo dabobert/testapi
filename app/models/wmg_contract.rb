@@ -13,10 +13,7 @@ class WmgContract < ActiveRecord::Base
     self.contract_name
   end
   
-  def color
-    "yellow"
-  end
-  
+
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new

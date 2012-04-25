@@ -9,10 +9,6 @@ class Release < ActiveRecord::Base
   has_many :labels, :through=>:release_labels
   has_many :mediums, :foreign_key=>'release'
   has_many :tracklists, :through=>:mediums
-  
-  def color
-    "DodgerBlue"
-  end
 
   def response(depth=3)
     @adjacencies  = Array.new

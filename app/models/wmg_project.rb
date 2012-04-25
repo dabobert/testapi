@@ -11,10 +11,6 @@ class WmgProject < ActiveRecord::Base
   def name
     self.project_nm.titlecase
   end
-  
-  def color
-    "blue"
-  end
 
   def response(depth=3)
     @adjacencies  = Array.new

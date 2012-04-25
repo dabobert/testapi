@@ -15,10 +15,6 @@ class ReleaseGroup < ActiveRecord::Base
     self.data+self.other_nodes
   end
   
-  def color
-    "blue"
-  end
-  
   def type
     "project"
   end
