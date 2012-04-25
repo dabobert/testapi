@@ -1,6 +1,8 @@
 development:
-  host: 10.80.69.79#tier3
-  #host: 10.139.235.137 #macbook pro
+#tier3
+  host: 10.80.69.79
+#macbook pro  
+  #host: 10.139.235.137
   adapter: postgresql
   encoding: unicode
   database: musicbrainz_db

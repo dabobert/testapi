@@ -10,7 +10,7 @@ class Debug
   
   def self.foo
     p=Proc.new {|t|   t.string :text, :limit => 1024 }
-    TableMaker.bar( "Dogs")
+    TableMaker.bar( "Dogs"){|t|   t.string :text, :limit => 1024 }
   end
   
 end
