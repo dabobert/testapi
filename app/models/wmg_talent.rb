@@ -5,6 +5,7 @@ class WmgTalent < ActiveRecord::Base
   self.table_name = "wmg_talent"
   self.primary_key =  'participant_id'
   
+  belongs_to :mb_artist, :class_name=>"Artist", :foreign_key=>"mb_id"
   has_many :talent_role_entities, :class_name=>"WmgTalentRoleIdentity", :foreign_key=>"talent_id"
   has_many :roles, :class_name=>"WmgRole", :foreign_key=>"role_id", :through=>:talent_role_entities
   
