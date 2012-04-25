@@ -13,4 +13,9 @@ class Debug
     TableMaker.bar( "Dogs"){|t|   t.string :text, :limit => 1024 }
   end
   
+  def self.wmggd
+    WmgArtist.find(1077655)
+  end
+  
+  
 end

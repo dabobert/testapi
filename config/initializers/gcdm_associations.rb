@@ -18,7 +18,11 @@ module GcdmAssociations
   end
   
   def method_missing(method, *args, &block)
-    if self.respond_to? "entity"
+    if method == :type
+      gcdm_type.downcase
+    elsif method == :gid
+      "#{gcdm_type.downcase}#{self.id}"
+    elsif self.respond_to? "entity"
       return nil if self.entity != method.to_s.camelcase
       oo_entity
     else
