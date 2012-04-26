@@ -1,7 +1,7 @@
 class DebugController < ApplicationController
   respond_to :html, :xml, :json
 
-  before_filter :generate_response
+  before_filter :filter
   
   def create
     respond_with(@response) do |format|
@@ -13,11 +13,13 @@ class DebugController < ApplicationController
   
   
   def index
+    
+    
     @response =
       {
         :status => "OK",
         :description => "descr",
-        :data => Debug.wmgbja.origin(5)
+        :data => @data
       }
     respond_with(@response) do |format|
       format.html { render :template => "/api/show.html.erb" }
@@ -25,4 +27,19 @@ class DebugController < ApplicationController
       format.xml  { render :xml  => @response.to_xml }
     end
   end
+  
+  private
+  
+  def filter
+    @data     = Debug.wmgbja.origin(6)
+    @filters  = ["contract"]
+    
+    
+    
+    
+    
+    
+    
+  end
+  
 end

@@ -21,5 +21,11 @@ class Debug
     WmgTalent.find(1044220)
   end
   
+  def self.d
+    Debug.wmgbja.origin(5)
+  end
   
+  def self.out(obj)
+    obj.each do |a| puts "#{a[:data][:gcdm_type]} -> #{a[:id]}" end
+  end
 end
