@@ -31,7 +31,7 @@ class DebugController < ApplicationController
   private
   
   def filter
-    @data     = Debug.wmgbja.origin(6)
+    @data     = Debug.wmgbja.origin(5)
     @filters  = ["contract"]
     
     

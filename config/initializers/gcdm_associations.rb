@@ -25,6 +25,11 @@ module GcdmAssociations
     "#{self.gcdm_type.downcase}#{self.id}"
   end
   
+  
+  def shape
+    "circle"
+  end
+  
   def method_missing(method, *args, &block)
     if self.respond_to? "entity"
       return nil if self.entity != method.to_s.camelcase

@@ -43,6 +43,7 @@ module NodeTools
           "$color"=> self.color, 
           "$dim"=> 8, 
           "$type"=> self.shape,
+          :meta_type=>self.meta_type,
           :gcdm_type =>self.type,
         },
       :id => self.gid,
@@ -63,6 +64,10 @@ module NodeTools
     end
   end
   
+  def meta_type
+    self.type
+  end
+  
   #sets default color to grey
   def color
     if UI_CONFIG[self.type].blank?
@@ -73,11 +78,7 @@ module NodeTools
   end
   
   def shape
-    if UI_CONFIG[self.type].blank?
-      "circle"
-    else
-      UI_CONFIG[self.type]["shape"]
-    end
+    "square"
   end
   
 end

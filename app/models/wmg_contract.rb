@@ -13,6 +13,14 @@ class WmgContract < ActiveRecord::Base
     self.contract_name
   end
   
+  def meta_type
+    if self.contract_type == "Recording"
+      "recording_contract"
+    else
+      "publishing_contract"
+    end
+  end
+  
 
   def response(depth=3)
     @adjacencies  = Array.new
