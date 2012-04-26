@@ -13,13 +13,14 @@ class DebugController < ApplicationController
   
   
   def index
-    
+    data  = Debug.r
+    data  = NodeFilter.new(data).filter(params[:filters].split(",")) unless params[:filters].blank?
     
     @response =
       {
         :status => "OK",
         :description => "descr",
-        :data => Debug.r
+        :data => data
       }
     respond_with(@response) do |format|
       format.html { render :template => "/api/show.html.erb" }

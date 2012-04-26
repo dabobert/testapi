@@ -1,11 +1,10 @@
-class Debug
+class NodeFilter
   attr_accessor :ancestors, :data, :to_replace
   
-  def out    
-    @filters = ["project","work"]
+  def filter(filters)    
+    @filters = filters
     @ancestors = Hash.new
     @to_replace = Hash.new
-    
     
     @filters.each do |filter|
       @data.each_index do |pos|
@@ -19,8 +18,6 @@ class Debug
         @ancestors[(value[:data][:gcdm_type])] = clone
       end
       
-      
-
       @data.each_index do |pos|
         #if the present node should be removed
         if @to_replace.keys.include? @data[pos][:id]
@@ -58,7 +55,6 @@ class Debug
   end
   
   def initialize(data)
-    data = Debug.d if data.blank? 
     @data = data
   end
   
@@ -75,37 +71,5 @@ class Debug
     return ancestor(@ancestors[ancestor_type]) if @filters.include?(ancestor_type)
     @ancestors[ancestor_type]
   end
-  
-  def self.r(data=nil)
-    data = Debug.d if data.blank?
-    d = Debug.new data
-    d.out
-  end
-  
-  def self.gd
-    ArtistName.find_by_name("Green Day")
-  end
-  
-  def self.bja
-    ArtistName.find_by_name("Billie Joe Armstrong")
-  end
-  
-  def self.foo
-    p=Proc.new {|t|   t.string :text, :limit => 1024 }
-    TableMaker.bar( "Dogs"){|t|   t.string :text, :limit => 1024 }
-  end
-  
-  def self.wmggd
-    WmgArtist.find(1077655)
-  end
-  
-  def self.wmgbja
-    WmgTalent.find(1044220)
-  end
-  
-  def self.d
-    Debug.wmgbja.origin(5)
-  end
-  
 
 end

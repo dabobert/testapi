@@ -45,6 +45,8 @@ class ApplicationController < ActionController::Base
       descr     = "OK"
       data = @object.origin(@depth)
     end
+    
+    data  = NodeFilter.new(data).filter(params[:filters].split(",")) unless params[:filters].blank?
 
     @response =
       {

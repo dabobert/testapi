@@ -1,6 +1,6 @@
 class WmgContract < ActiveRecord::Base
-  include GcdmAssociations
   include NodeTools
+  include GcdmAssociations
   
   self.table_name = 'wmg_contract'
   self.primary_key =  "contract_id"
