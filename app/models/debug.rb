@@ -26,7 +26,7 @@ class Debug
     end
     
     @to_replace[:pos].each do |pos|
-      @data.delete_at(pos)
+      @data[pos] = nil
     end
     
     @data.compact
