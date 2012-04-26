@@ -3,33 +3,38 @@ class Debug
   
   def out
     filters = ["contract"]
-
     @data.each_index do |pos|
       value = @data[pos]
+      if filters.include? value[:data][:gcdm_type]    
+        node = self.ancestor(value)
+        @to_replace[value[:id]] = node[:id]
+      end
       clone = value.clone
-            puts "-----------"
-            puts "#{value[:data][:gcdm_type]} -> #{value[:data][:meta_type]} -> #{value[:id]} -> #{value[:name]} = #{self.ancestor(value)}"
-            puts filters.include? value[:data][:gcdm_type]
       clone.delete(:adjacencies)
       @ancestors[(value[:data][:gcdm_type])] = clone
-      
-      if filters.include? value[:data][:gcdm_type]
-        node = self.ancestor(value)
-        #replaces data node
-=begin        
-        @data[pos][:data] = node[:data]
-        @data[pos][:id] = node[:id]
-        @data[pos][:name] = node[:name]
-        @data[pos][:adjacencies].each do |adjacency|
-          adjacency[:nodeFrom] = node[:id]
-        end
-        @to_replace[:id] = node[:id]
-=end
-       @data[pos] = nil
-#        puts @data[pos]
+    end
+    
+    @data.each_index do |pos|
+      if @to_replace.keys.include? @data[pos][:id]
+        anc_pos = self.seek_position(@to_replace[(@data[pos][:id])])
+        @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
+        @data[pos] = nil
       end
     end
-    @data
+    @data.compact
+  end
+  
+  def seek_position(id)
+    return nil if id.blank?
+    @data.each_index do |pos|
+      return pos if (@data[pos][:id] == id)
+    end
+  end
+  
+  def update_source_adjacencies(id, adjacencies)
+    adjacencies.each do |adjacency|
+      adjacency[:nodeFrom] = id
+    end
   end
   
   def initialize(data)
@@ -52,7 +57,7 @@ class Debug
     @ancestors[ancestor_type]
   end
   
-  def self.r(data)
+  def self.r(data=nil)
     data = Debug.d if data.blank?
     d = Debug.new data
     d.out
