@@ -7,21 +7,21 @@ class Debug
       value = @data[pos]
       if filters.include? value[:data][:gcdm_type]    
         node = self.ancestor(value)
-        @to_replace[value[:id]] = node[:id]
+        @to_replace[:pos] << pos
+        @to_replace[:keys][value[:id]] = node[:id]
       end
       clone = value.clone
       clone.delete(:adjacencies)
       @ancestors[(value[:data][:gcdm_type])] = clone
     end
     
-    @data.each_index do |pos|
-      if @to_replace.keys.include? @data[pos][:id]
-        anc_pos = self.seek_position(@to_replace[(@data[pos][:id])])
+    @to_replace[:pos] do |pos|
+      #if @to_replace.keys.include? @data[pos][:id]
+        anc_pos = self.seek_position(@to_replace[:key][(@data[pos][:id])])
         @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
-        @data[pos] = nil
-      end
+      #end
     end
-    @data.compact
+    
   end
   
   def seek_position(id)
