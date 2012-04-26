@@ -6,7 +6,7 @@ class ArtistName < ActiveRecord::Base
   has_one :credit, :class_name=>"ArtistCredit", :foreign_key=>"name"
   
   def self.seek(str)
-    results = self.where("lower(talent_name) = lower(?)", str)
+    results = self.where("lower(name) = lower(?)", str)
     talent = results.first
     talent
   end
