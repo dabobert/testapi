@@ -42,7 +42,6 @@ class Debug
   def seek_position(id)
     return nil if id.blank?
     @data.each_index do |pos|
-      #puts "====#{pos}"
       return pos if (@data[pos] != nil && @data[pos][:id] == id)
     end
   end

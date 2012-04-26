@@ -13,6 +13,40 @@ class Artist < ActiveRecord::Base
     @gcdm_object = self.wmg_artist || self.wmg_talent
   end
   
+  def name
+    unless self.gcdm_object.blank?
+      self.gcdm_object.name
+    else
+      ArtistName.find self[:name]
+    end
+  end
+
+  
+  def type
+    unless self.gcdm_object.blank?
+      self.gcdm_object.type
+    else
+      case self.artist_type_id
+      when 1
+        "talent"
+      when 2
+        "artist"
+      else
+        "other"
+      end
+    end
+  end
+  
+  def id
+    unless self.gcdm_object.blank?
+      self.gcdm_object.gid
+    else
+      self.gid
+    end
+  end
+  
+
+  
   def response(depth=3)
     return self.gcdm_object.response(depth) unless self.gcdm_object.blank?
     
@@ -22,7 +56,7 @@ class Artist < ActiveRecord::Base
       
         self.iterate(self.band_memberships, (depth-1), "band")
         self.iterate(self.talent_memberships, (depth-1), "member")
-        puts self.name
+        puts "#{self.name} => #{self.id}"
       begin
         self.iterate(self.name.credit.release_groups, (depth-1))
       rescue
@@ -36,25 +70,12 @@ class Artist < ActiveRecord::Base
     @other_nodes  = Array.new
     if depth > 0
       begin
-        #self.iterate(self.band_memberships, (depth-1), "band")
         self.iterate(self.talent_memberships, (depth-1), "member")
-        #self.iterate(self.name.credit.release_groups, (depth-1))
       rescue
       end
     end
     self.data+self.other_nodes
   end
   
-  
-  def type
-    case self.artist_type_id
-    when 1
-      "talent"
-    when 2
-      "artist"
-    else
-      "other"
-    end
-  end
   
 end
