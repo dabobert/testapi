@@ -1,42 +1,63 @@
 class Debug
   attr_accessor :ancestors, :data, :to_replace
   
-  def out
+  def out    
+    filters = ["contract"]
     @ancestors = Hash.new
     @to_replace = Hash.new
-    @to_replace[:pos] = Array.new
-    @to_replace[:keys] = Hash.new
     
-    filters = ["contract"]
-    @data.each_index do |pos|
-      value = @data[pos]
-      if filters.include? value[:data][:gcdm_type]    
-        node = self.ancestor(value)
-        @to_replace[:pos] << pos
-        @to_replace[:keys][value[:id]] = node[:id]
+    
+    filters.each do |filter|
+      @data.each_index do |pos|
+        value = @data[pos]
+        if value[:data][:gcdm_type] == filter
+          node = self.ancestor(value)
+          @to_replace[value[:id]] = node[:id]
+        end
+        clone = value.clone
+        clone.delete(:adjacencies)
+        @ancestors[(value[:data][:gcdm_type])] = clone
       end
-      clone = value.clone
-      clone.delete(:adjacencies)
-      @ancestors[(value[:data][:gcdm_type])] = clone
-    end
+
+      @data.each_index do |pos|
+        #if the present node should be removed
+        if @to_replace.keys.include? @data[pos][:id]
+          anc_pos = self.seek_position(@to_replace[(@data[pos][:id])])
+=begin          
+          puts "#{filter}-----------"
+          puts @data.inspect
+          puts @data.class
+          puts "======"
+          puts anc_pos.inspect
+          puts @data[anc_pos][:id].inspect
+          puts @data[pos]
+          puts @data[pos][:adjacencies].inspect
+          
+          puts self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies]).inspect
+=end          
+          @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
+          @data[pos] = nil
+        elsif not((self.adjacencies(@data[pos]) | @to_replace.keys).blank?)
+          data[pos][:adjacencies].delete_if do |hash|
+            @to_replace.keys.include?(hash[:nodeFrom]) || @to_replace.keys.include?(hash[:nodeTo])
+          end
+        end
+      end
     
-    @to_replace[:pos].each do |pos|
-      anc_pos = self.seek_position(@to_replace[:keys][(@data[pos][:id])])
-      @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
+      @data.compact!
     end
-    
-    @to_replace[:pos].each do |pos|
-      @data[pos] = nil
-    end
-    
-    @data.compact
   end
   
   def seek_position(id)
     return nil if id.blank?
     @data.each_index do |pos|
-      return pos if (@data[pos][:id] == id)
+      puts "====#{pos}"
+      return pos if (@data[pos] != nil && @data[pos][:id] == id)
     end
+  end
+  
+  def adjacencies(value)
+    value[:adjacencies].collect do |a| a.values end.flatten
   end
   
   def update_source_adjacencies(id, adjacencies)

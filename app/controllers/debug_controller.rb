@@ -19,7 +19,7 @@ class DebugController < ApplicationController
       {
         :status => "OK",
         :description => "descr",
-        :data => @data
+        :data => Debug.r
       }
     respond_with(@response) do |format|
       format.html { render :template => "/api/show.html.erb" }
