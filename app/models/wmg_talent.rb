@@ -9,6 +9,13 @@ class WmgTalent < ActiveRecord::Base
   has_many :talent_role_entities, :class_name=>"WmgTalentRoleIdentity", :foreign_key=>"talent_id"
   has_many :roles, :class_name=>"WmgRole", :foreign_key=>"role_id", :through=>:talent_role_entities
   
+  
+  def self.seek(str)
+    results = self.where("lower(name) = lower(?)", str)
+    talent = results.first
+    talent
+  end
+  
   def artists
     @artists ||=
       self.talent_role_entities.select("entity_id, entity").where("entity='Artist'").group("entity_id, entity").collect do |tre|

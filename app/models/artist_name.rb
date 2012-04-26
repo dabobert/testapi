@@ -6,17 +6,9 @@ class ArtistName < ActiveRecord::Base
   has_one :credit, :class_name=>"ArtistCredit", :foreign_key=>"name"
   
   def self.seek(str)
-    results = self.where("lower(name) = lower(?)", str)
-    if results.blank?
-      nil
-    else
-      artist_name = results.first
-      if artist_name.artist.blank?
-        nil
-      else
-        artist_name
-      end
-    end
+    results = self.where("lower(talent_name) = lower(?)", str)
+    talent = results.first
+    talent
   end
   
   

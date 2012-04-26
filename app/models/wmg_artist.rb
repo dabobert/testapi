@@ -10,6 +10,12 @@ class WmgArtist < ActiveRecord::Base
   has_many :contracts, :class_name=>"WmgContract", :foreign_key=>"entity_id"  
   has_many :products, :class_name=>"WmgProduct", :foreign_key=>"artist_id"
   
+  def self.seek(str)
+    results = self.where("lower(artist_name) = lower(?)", str)
+    artist = results.first
+    artist
+  end
+  
   def name
     self.artist_name
   end
