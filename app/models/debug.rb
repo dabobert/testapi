@@ -2,6 +2,11 @@ class Debug
   attr_accessor :ancestors, :data, :to_replace
   
   def out
+    @ancestors = Hash.new
+    @to_replace = Hash.new
+    @to_replace[:pos] = Array.new
+    @to_replace[:keys] = Hash.new
+    
     filters = ["contract"]
     @data.each_index do |pos|
       value = @data[pos]
@@ -15,13 +20,16 @@ class Debug
       @ancestors[(value[:data][:gcdm_type])] = clone
     end
     
-    @to_replace[:pos] do |pos|
-      #if @to_replace.keys.include? @data[pos][:id]
-        anc_pos = self.seek_position(@to_replace[:key][(@data[pos][:id])])
-        @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
-      #end
+    @to_replace[:pos].each do |pos|
+      anc_pos = self.seek_position(@to_replace[:keys][(@data[pos][:id])])
+      @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
     end
     
+    @to_replace[:pos].each do |pos|
+      @data.delete_at(pos)
+    end
+    
+    @data.compact
   end
   
   def seek_position(id)
@@ -40,8 +48,6 @@ class Debug
   def initialize(data)
     data = Debug.d if data.blank? 
     @data = data
-    @ancestors = Hash.new
-    @to_replace = Hash.new
   end
   
   def ancestor(hash)
