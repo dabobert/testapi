@@ -19,9 +19,11 @@ class Artist < ActiveRecord::Base
     @adjacencies  = Array.new
     @other_nodes  = Array.new
     if depth > 0
-      begin
+      
         self.iterate(self.band_memberships, (depth-1), "band")
         self.iterate(self.talent_memberships, (depth-1), "member")
+        puts self.name
+      begin
         self.iterate(self.name.credit.release_groups, (depth-1))
       rescue
       end
