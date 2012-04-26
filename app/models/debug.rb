@@ -2,12 +2,12 @@ class Debug
   attr_accessor :ancestors, :data, :to_replace
   
   def out    
-    filters = ["contract"]
+    @filters = ["project","contract"]
     @ancestors = Hash.new
     @to_replace = Hash.new
     
     
-    filters.each do |filter|
+    @filters.each do |filter|
       @data.each_index do |pos|
         value = @data[pos]
         if value[:data][:gcdm_type] == filter
@@ -18,40 +18,31 @@ class Debug
         clone.delete(:adjacencies)
         @ancestors[(value[:data][:gcdm_type])] = clone
       end
+      
+      
 
       @data.each_index do |pos|
         #if the present node should be removed
         if @to_replace.keys.include? @data[pos][:id]
-          anc_pos = self.seek_position(@to_replace[(@data[pos][:id])])
-=begin          
-          puts "#{filter}-----------"
-          puts @data.inspect
-          puts @data.class
-          puts "======"
-          puts anc_pos.inspect
-          puts @data[anc_pos][:id].inspect
-          puts @data[pos]
-          puts @data[pos][:adjacencies].inspect
-          
-          puts self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies]).inspect
-=end          
+          anc_pos = self.seek_position(@to_replace[(@data[pos][:id])])  
           @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
           @data[pos] = nil
         elsif not((self.adjacencies(@data[pos]) | @to_replace.keys).blank?)
-          data[pos][:adjacencies].delete_if do |hash|
+          
+          @data[pos][:adjacencies].delete_if do |hash|
             @to_replace.keys.include?(hash[:nodeFrom]) || @to_replace.keys.include?(hash[:nodeTo])
           end
         end
       end
-    
       @data.compact!
     end
+    @data
   end
   
   def seek_position(id)
     return nil if id.blank?
     @data.each_index do |pos|
-      puts "====#{pos}"
+      #puts "====#{pos}"
       return pos if (@data[pos] != nil && @data[pos][:id] == id)
     end
   end
@@ -81,6 +72,7 @@ class Debug
       when "project"
         "contract"
       end
+    return ancestor(@ancestors[ancestor_type]) if @filters.include?(ancestor_type)
     @ancestors[ancestor_type]
   end
   
