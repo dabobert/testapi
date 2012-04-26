@@ -20,9 +20,6 @@ module NodeTools
       gid = obj.gid
     end
 
-    puts "====="
-    puts gid
-    puts obj.class
     {
       :nodeFrom => self.gid,
       :nodeTo   => gid

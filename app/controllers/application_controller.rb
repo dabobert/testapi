@@ -14,19 +14,23 @@ class ApplicationController < ActionController::Base
 
 
   def parse_params
-    logger.debug params.inspect
+    
     if params.keys.include?("userid") && params.keys.include?("mapname")
       data        = Info.get(params["userid"], params["mapname"])
       @search_term= data["search_term"]
       @depth      = data["search_depth"]
       @pinned     = data["pinned_nodes"]
+      @filters    = data["search_filters"]
+      @data_set   = data["search_data_set"].to_i
     elsif params.keys.include?("id")
       if params[:depth].blank?
         @depth = 3
       else
         @depth = params[:depth].to_i
       end
+      @filters = params[:filters] unless params[:filters].blank?
       @search_term = params[:id]
+      @data_set = params[:data_set].to_i
     else
       render :text => "Explosion! Missing required parameters", :status => 500
     end
@@ -34,8 +38,14 @@ class ApplicationController < ActionController::Base
 
 
   def generate_response
-    @object = ArtistName.seek(@search_term) || ReleaseName.seek(@search_term)
-
+    
+    case @data_set
+    when 0
+      @object = ArtistName.seek(@search_term) || ReleaseName.seek(@search_term)
+    when 1
+      @object = WmgTalent.find_by_name(@search_term) || WmgArtist.find_by_artist_name(@search_term)
+    end
+    
     if @object.blank?
       status    = 0
       descr     = "no data set returned"
@@ -46,7 +56,7 @@ class ApplicationController < ActionController::Base
       data = @object.origin(@depth)
     end
     
-    data  = NodeFilter.new(data).filter(params[:filters].split(",")) unless params[:filters].blank?
+    data  = NodeFilter.new(data).filter(@filters.split(",")) unless @filters.blank?
 
     @response =
       {
