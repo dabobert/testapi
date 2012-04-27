@@ -73,7 +73,6 @@ puts  @to_replace.inspect
   
   def ancestor(hash)
 
-	puts "    -> #{hash.inspect}"
     ancestor_type = 
       case hash[:data][:gcdm_type]
       when "contract"
@@ -92,7 +91,6 @@ puts  @to_replace.inspect
 	end
       end
     
-puts "     -0---#{ancestor_type}-----"  
     return ancestor(@ancestors[ancestor_type]) if  @filters.include?(ancestor_type)
     @ancestors[ancestor_type]
   end
