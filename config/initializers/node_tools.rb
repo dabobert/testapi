@@ -77,7 +77,7 @@ module NodeTools
   #sets default color to grey
   def color
     if UI_CONFIG[self.type].blank?
-      "grey"
+      "#999999"
     else
       UI_CONFIG[self.type]["color"]
     end
