@@ -6,9 +6,14 @@ class NodeFilter
     @filters = filters
     @ancestors = Hash.new
     @to_replace = Hash.new
+
+
     
     @filters.each do |filter|
       @data.each_index do |pos|
+
+
+puts filter       
         value = @data[pos]
 
 

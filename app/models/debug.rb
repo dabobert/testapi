@@ -21,8 +21,9 @@ class Debug
   end
   
   def self.f
-    filters = ["asset,product,work,contract,rights"]
-    data = NodeFilter.new(DataSet.d7).filter(filters.split(",")) unless filters.blank?    
+    filters = ["asset","product","work","contract","rights"]
+    data = NodeFilter.new(DataSet.d7).filter(filters)
+    #data
   end
   
   def out    
