@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423140657) do
+ActiveRecord::Schema.define(:version => 20120427143135) do
 
   create_table "annotation", :force => true do |t|
     t.integer  "editor",    :null => false
@@ -1253,6 +1253,7 @@ ActiveRecord::Schema.define(:version => 20120423140657) do
     t.string  "artist_name"
     t.string  "country_of_origin", :limit => 3
     t.string  "genre",             :limit => 20
+    t.integer "mb_id"
   end
 
   create_table "wmg_asset", :id => false, :force => true do |t|
@@ -1302,7 +1303,7 @@ ActiveRecord::Schema.define(:version => 20120423140657) do
     t.string  "gpid_type",                 :limit => 20
     t.string  "display_title"
     t.string  "category",                  :limit => 40
-    t.string  "type",                      :limit => 40
+    t.string  "product_type",              :limit => 40
     t.string  "sub_type",                  :limit => 40
     t.string  "product_media_type",        :limit => 40
     t.string  "major_genre",               :limit => 40
@@ -1362,6 +1363,7 @@ ActiveRecord::Schema.define(:version => 20120423140657) do
     t.string  "business_phone", :limit => 30
     t.string  "cell_phone",     :limit => 30
     t.integer "address_id"
+    t.integer "mb_id"
   end
 
   create_table "wmg_talent_role_identity", :id => false, :force => true do |t|

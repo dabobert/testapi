@@ -1,4 +1,5 @@
 class WmgProduct < ActiveRecord::Base
+  include NodeTools
   include GcdmAssociations
   
   self.table_name = 'wmg_product'
@@ -12,4 +13,17 @@ class WmgProduct < ActiveRecord::Base
     self.display_title
   end
   
+  def response(depth=3)
+    @adjacencies  = Array.new
+    @other_nodes  = Array.new
+=begin
+    if depth > 0
+      begin
+        self.iterate(self.products, (depth-1))
+      rescue
+      end
+    end
+=end
+    self.data+self.other_nodes
+  end
 end

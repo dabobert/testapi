@@ -9,7 +9,7 @@ module NodeTools
   
   def origin(depth=4)
     hash = self.response(depth)
-    hash[0][:data]["$dim"]=16
+    hash[0][:data]["$dim"]=26
     hash
   end
   
@@ -47,7 +47,7 @@ module NodeTools
       :data =>
         {
           "$color"=> self.color, 
-          "$dim"=> 8, 
+          "$dim"=> 13, 
           "$type"=> self.shape,
           :meta_type=>self.meta_type,
           :gcdm_type =>self.type,
