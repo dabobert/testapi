@@ -20,7 +20,8 @@ class NodeFilter
 puts "-------"
 puts " ancestors=>#{ancestors.inspect}"
 puts " node=>#{node.inspect}"
-puts " value=>{value.inspect}"
+puts " value=>#{value.inspect}"
+puts " pos=>#{pos}"
           @to_replace[value[:id]] = node[:id]
         end
         clone = value.clone

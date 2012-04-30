@@ -1,6 +1,30 @@
 class Debug
   attr_accessor :ancestors, :data, :to_replace
   
+  
+  def self.d
+    params = {:depth=>"7", :filters =>"asset,product,work,contract,rights", :data_set =>"0", :id =>"green day"}
+    @depth = params[:depth].to_i
+    @filters = params[:filters] unless params[:filters].blank?
+    @search_term = params[:id]
+    @data_set = params[:data_set].to_i
+    
+    case @data_set
+    when 0
+      @object = ArtistName.seek(@search_term) || ReleaseName.seek(@search_term)
+    when 1
+      @object = WmgTalent.seek(@search_term) || WmgArtist.seek(@search_term)
+    end
+    
+    data  = @object.origin(@depth)
+    data
+  end
+  
+  def self.f
+    filters = ["asset,product,work,contract,rights"]
+    data = NodeFilter.new(DataSet.d7).filter(filters.split(",")) unless filters.blank?    
+  end
+  
   def out    
     @filters = ["project","work"]
     @ancestors = Hash.new
@@ -102,7 +126,7 @@ class Debug
     WmgTalent.find(1044220)
   end
   
-  def self.d
+  def self.dddd
     Debug.wmgbja.origin(5)
   end
   
