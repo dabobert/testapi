@@ -1,5 +1,5 @@
 module NodeTools
-  attr_accessor :adjacencies, :other_nodes  
+  attr_accessor :adjacencies, :other_nodes, :depth
 
   
   def self.set_origin_height(hash)
@@ -48,17 +48,40 @@ module NodeTools
   end
   
   def data
+    #puts "==#{self.name}===#{self.class}==#{@depth}==="
+    if self.respond_to?(:gcdm_object) && not(self.gcdm_object.blank?)
+      gcdm_response = self.gcdm_object.response(@depth)
+      color_value = self.gcdm_object.color
+      shape_value = self.gcdm_object.shape
+      type_value  = self.gcdm_object.type
+      gid_value   = self.gcdm_object.gid
+      meta_type_value = self.gcdm_object.meta_type
+      unless gcdm_response.blank?
+        head = gcdm_response.delete_at(0)
+        self.adjacencies += head[:adjacencies]
+        self.other_nodes += gcdm_response
+      end
+    else
+      color_value = self.color
+      shape_value = self.shape
+      type_value  = self.type
+      gid_value   = self.gid
+      meta_type_value = self.meta_type
+    end
+    
+    
+    
     [{
       :adjacencies=>self.adjacencies,
       :data =>
         {
-          "$color"=> self.color, 
+          "$color"=> color_value, 
           "$dim"=> 13, 
-          "$type"=> self.shape,
-          :meta_type=>self.meta_type,
-          :gcdm_type =>self.type,
+          "$type"=> shape_value,
+          :meta_type=>meta_type_value,
+          :gcdm_type =>type_value,
         },
-      :id => self.gid,
+      :id => gid_value,
       :name => self.name.to_s
     }]
   end
