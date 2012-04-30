@@ -14,15 +14,21 @@ module NodeTools
   end
   
   def make_adjacency(obj)
-    if obj.respond_to?(:gcdm_object) && not(obj.gcdm_object.blank?)
-      gid = obj.gcdm_object.gid
+    if self.respond_to?(:gcdm_object) && not(self.gcdm_object.blank?)
+      from_gid = self.gcdm_object.gid
     else
-      gid = obj.gid
+      from_gid = self.gid
+    end
+
+    if obj.respond_to?(:gcdm_object) && not(obj.gcdm_object.blank?)
+      to_gid = obj.gcdm_object.gid
+    else
+      to_gid = obj.gid
     end
 
     {
-      :nodeFrom => self.gid,
-      :nodeTo   => gid
+      :nodeFrom => from_gid,
+      :nodeTo   => to_gid
     }
   end
   

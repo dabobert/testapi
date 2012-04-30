@@ -83,18 +83,24 @@ puts  @to_replace.inspect
       case hash[:data][:gcdm_type]
       when "contract"
         "artist"
+      when "product"
+        "project"
+      when "asset"
+        "product"
+      when "right"
+        "product"
       when "work"
         "contract"
       when "project"
         if hash[:data]["$type"] == "circle"
-	  "contract"
-	else
-	  if (@ancestors.keys.include? "artist")
-	    "artist"
-	  else
-	    "talent"
-	  end
-	end
+      	  "contract"
+      	else
+      	  if (@ancestors.keys.include? "artist")
+      	    "artist"
+      	  else
+      	    "talent"
+      	  end
+	      end
       end
     
     return ancestor(@ancestors[ancestor_type]) if  @filters.include?(ancestor_type)

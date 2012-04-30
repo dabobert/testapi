@@ -48,7 +48,9 @@ class Artist < ActiveRecord::Base
 
   
   def response(depth=3)
-    return self.gcdm_object.response(depth) unless self.gcdm_object.blank?
+    gcdm_data = []
+    gcdm_data = self.gcdm_object.response(depth) unless self.gcdm_object.blank?
+    puts gcdm_data.inspect
     
     @adjacencies  = Array.new
     @other_nodes  = Array.new
