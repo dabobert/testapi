@@ -19,11 +19,12 @@ class NodeFilter
           node = self.ancestor(value)
 
 
-puts "-------"
-puts " ancestors=>#{ancestors.inspect}"
-puts " node=>#{node.inspect}"
-puts " value=>#{value.inspect}"
-puts " pos=>#{pos}"
+#Debug.echo "-------"
+#Debug.echo "   ancestors=>#{ancestors.inspect}"
+#Debug.echo "   node=>#{node.inspect}"
+#Debug.echo "   value=>#{value.inspect}"
+#Debug.echo "   pos=>#{pos}"
+#Debug.echo "   value[:adjacencies]=>#{value[:adjacencies].class}"
           @to_replace[value[:id]] = node[:id]
         end
         clone = value.clone
@@ -39,6 +40,8 @@ puts " pos=>#{pos}"
           @data[anc_pos][:adjacencies] += self.update_source_adjacencies(@data[anc_pos][:id], @data[pos][:adjacencies])
           @data[pos] = nil
         elsif not((self.adjacencies(@data[pos]) | @to_replace.keys).blank?)
+          
+          #Debug.echo @data[pos].inspect
           
           @data[pos][:adjacencies].delete_if do |hash|
             @to_replace.keys.include?(hash[:nodeFrom]) || @to_replace.keys.include?(hash[:nodeTo])
@@ -59,6 +62,7 @@ puts " pos=>#{pos}"
   end
   
   def adjacencies(value)
+    return [] if value[:adjacencies].blank?
     value[:adjacencies].collect do |a| a.values end.flatten
   end
   
@@ -87,9 +91,9 @@ puts " pos=>#{pos}"
       when "work"
         "contract"
       when "project"
-        puts "=======looking into ancestors"
-        puts " #{hash.inspect}"
-        puts " #{@ancestors.inspect}"
+        #Debug.echo "=======looking into ancestors"
+        #Debug.echo " #{hash.inspect}"
+        #Debug.echo " #{@ancestors.inspect}"
         if hash[:data]["$type"] == "circle"
       	  "contract"
       	else

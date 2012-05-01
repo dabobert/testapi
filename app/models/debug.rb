@@ -3,6 +3,12 @@ class Debug
   
   attr_accessor :ancestors, :data, :to_replace
   
+  
+  def self.echo str
+    Rails.logger.debug str
+    puts str
+  end
+
   def self.fix
     index=0
     CSV.foreach("/Users/robertjenkins/Desktop/fixer.csv") do |row|

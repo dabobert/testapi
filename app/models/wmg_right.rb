@@ -8,6 +8,8 @@ class WmgRight < ActiveRecord::Base
 
   
   def response(depth=0)
+    @adjacencies  = Array.new
+    @other_nodes  = Array.new
     self.data
   end
 end
