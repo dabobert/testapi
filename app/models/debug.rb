@@ -3,6 +3,23 @@ class Debug
   
   attr_accessor :ancestors, :data, :to_replace
   
+  def self.aa
+    data =DataSet.d7
+    dest = Array.new
+    
+    data.each_index do |pos|
+      data[pos] = value
+      
+      new_pos = NodeTools.seek(data, value[:id])
+      if new_pos.blank?
+        dest << value
+      else
+        node = dest[pos]
+        #if adjacencies
+      end
+      dest
+    end
+  end
   
   def self.echo str
     Rails.logger.debug str

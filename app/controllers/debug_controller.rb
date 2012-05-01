@@ -1,46 +1,22 @@
 class DebugController < ApplicationController
   respond_to :html, :xml, :json
 
-  before_filter :filter
-  
-  def create
+  before_filter :parse_params, :set_depth, :generate_response
+  before_filter :color_response, :only=>:index
+
+  def show
     respond_with(@response) do |format|
       format.html
       format.json { render :json => @response.to_json, :callback=>params[:callback] }
       format.xml  { render :xml  => @response.to_xml }
     end
   end
-  
-  
+
   def index
-    data  = Debug.r
-    data  = NodeFilter.new(data).filter(params[:filters].split(",")) unless params[:filters].blank?
-    
-    @response =
-      {
-        :status => "OK",
-        :description => "descr",
-        :data => data
-      }
     respond_with(@response) do |format|
-      format.html { render :template => "/api/show.html.erb" }
+      format.html { render :action => :show}
       format.json { render :json => @response.to_json, :callback=>params[:callback] }
       format.xml  { render :xml  => @response.to_xml }
     end
   end
-  
-  private
-  
-  def filter
-    @data     = Debug.wmgbja.origin(5)
-    @filters  = ["contract"]
-    
-    
-    
-    
-    
-    
-    
-  end
-  
 end

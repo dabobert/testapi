@@ -55,7 +55,7 @@ class Artist < ActiveRecord::Base
       
         self.iterate(self.band_memberships, (depth-1), "band")
         self.iterate(self.talent_memberships, (depth-1), "member")
-        puts "#{self.name} => #{self.id}"
+        #Debug.echo "#{self.name} => #{self.id}"
       begin
         self.iterate(self.name.credit.release_groups, (depth-1))
       rescue

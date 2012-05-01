@@ -1,6 +1,20 @@
 module NodeTools
   attr_accessor :adjacencies, :other_nodes, :depth
 
+=begin  
+  def self.simplify_hashes array
+    array.collect do |hash| hash[:nodeFrom]+hash[:nodeTo] end
+  end
+  
+  def self.seek_position(data, id)
+    return nil if id.blank?
+    data.each_index do |pos|
+      #puts "====#{pos}"
+      return pos if (data[pos] != nil && data[pos][:id] == id)
+    end
+    return false
+  end
+=end
   
   def self.set_origin_height(hash)
     hash[0][:data]["$dim"]=16

@@ -1,6 +1,24 @@
 class NodeFilter
   attr_accessor :ancestors, :data, :to_replace
   
+  
+  def self.assign_depth(filters)
+#implementing this will change the ui in a way jm won't like
+#by changing the depth we are not only changing the gcdm objects we return
+#but also how many talent/artist nodes we return
+
+#this can ONLY work if filters are ONLY used within the wmg dataset
+#=begin 
+    depths = {"right"=>11, "asset"=>9, "product"=>7, "project"=>5, "contract"=>3}
+    filters.each do |key|
+      depths.delete(key)
+    end
+    Debug.echo " ==== #{depths.inspect} => #{depths.values.max}"
+    depths.values.max
+#=end    
+#    11
+  end
+
   def filter(filters) 
 
     @filters = filters
