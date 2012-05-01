@@ -1,0 +1,777 @@
+1375	Orchestrator
+1376	Poet
+2000	A&R Manager
+2001	Accordion
+2002	Actor
+2003	Adapter
+2004	Agent
+2005	All Instruments
+2006	Archlute
+2007	Arranger
+2008	Art Director
+2009	Autoharp
+2010	Baglamas
+2011	Bagpipes
+2012	Ballet Company
+2013	Band Member
+2014	Bandoneon
+2015	Banjo
+2016	Barrel Organ
+2017	Baryton
+2018	Bass
+2019	Bass Viol
+2020	Bass-Baritone
+2021	Bassoon
+2022	Beats
+2023	Bells
+2024	Berimbau
+2025	Bodhran
+2026	Bouzouki
+2027	Boy Soprano
+2028	Brass
+2029	Brass Band
+2030	Brass Ensemble
+2031	Bugle
+2032	Camera
+2033	Castanets
+2034	Casting
+2035	Cavaco
+2036	Cello
+2037	Chakeire
+2038	Chamberlain Strings
+2039	Chimes
+2040	Chitaronne
+2041	Choir
+2042	Choreographer
+2043	Chorus
+2044	Cinematographer
+2045	Cittern
+2046	Clarinet
+2047	Clavichord
+2048	Clavinet
+2049	Clavinova
+2050	Co-writer
+2051	Commentator
+2052	Compilation Artist
+2053	Composer
+2054	Computer Programming
+2055	Conductor
+2056	Congas
+2057	Consultant
+2058	Contra-Bassoon
+2059	Contributor
+2060	Cor Anglais
+2061	Cora
+2062	Cornamuse
+2063	Cornet
+2064	Cornetto
+2065	Cover Artist
+2066	Crotales
+2067	Crumhorn
+2068	Cuts by
+2069	Cymbals
+2070	DJ
+2071	Dancer
+2072	Derbuka
+2073	Designer
+2074	Didgeridoo
+2075	Director
+2076	Dobro
+2077	Double Bass
+2078	Drehleier
+2079	Drums
+2080	Drums & Keyboards
+2081	Drums & Voice
+2082	Drums, Voice & Bass
+2083	Drums, Voice, Keyboard & Bass
+2084	Dulcimer
+2085	EWI
+2086	Editor
+2087	Engineer
+2088	Engineer & Mixer
+2089	Engineer & Programmer
+2090	Ensemble
+2091	Euphonium
+2092	Fiddle
+2093	Film
+2094	Flageolet
+2095	Flugelhorn
+2096	Flute
+2097	Footsteps
+2098	Fortepiano
+2099	French Horn
+2100	Gittern
+2101	Glockenspiel
+2102	Gong
+2103	Gourd
+2104	Guitar
+2105	Hackbrett
+2106	Hammond organ
+2107	Hand Clap
+2108	Harmonica
+2109	Harmonium
+2110	Harmonizer
+2111	Harp
+2112	Harpsichord
+2113	Horn
+2114	Hurdy-gurdy
+2115	Illustrator
+2116	Instrumentation
+2117	Instruments
+2118	Interviewee
+2119	Interviewer
+2120	Iorgagon
+2121	Jew's Harp
+2122	Kaval
+2123	Keyboards
+2124	Knackers
+2125	Kobza
+2126	Koto
+2127	Kutz
+2128	Leader
+2129	Legal Representative
+2130	Librettist
+2131	Licensor
+2132	Loops
+2133	Lute
+2134	Lutheral
+2135	Lyra
+2136	Lyre
+2137	Lyricist
+2138	Lyricon
+2139	Main MC
+2140	Make-up Artist
+2141	Manager
+2142	Mandola
+2143	Mandolin
+2144	Marimba
+2145	Masterer
+2146	Mediaeval Fiddle
+2147	Mellotron
+2148	Melodica
+2149	Mixer
+2150	Moog
+2151	Music
+2152	Musical Associate
+2153	Musicians
+2154	Narrator
+2155	Natural Horn
+2156	Natural Trumpet
+2157	Nyckelharpa
+2158	Oboe
+2159	Oboe da caccia
+2160	Ondes Martenot
+2161	Opheclide
+2162	Orchestra
+2163	Orchestra Leader
+2164	Organ
+2165	Organistrum
+2166	Percussion
+2167	Performance
+2168	Personal Assistant
+2169	Photographer
+2170	Piano
+2171	Piano Duo
+2172	Piano Quartet
+2173	Piano Quintet
+2174	Piano Trio
+2175	Piccolo
+2176	Players
+2177	Portativ
+2178	Pro Tools
+2179	Producer
+2180	Production
+2181	Programmer
+2182	Programming & Keyboards
+2183	Psaltery
+2184	Rap
+2185	Re-producer
+2186	Re-worker
+2187	Rebec
+2188	Reconstruction
+2189	Recorded by
+2190	Recorder
+2191	Recording
+2192	Recording & Mixing
+2193	Remix
+2194	Remixer
+2195	Researcher
+2196	Rhodes Solo
+2197	Ringtone Creator
+2198	Rubboard
+2199	Sackbut
+2200	Samples
+2201	Saxophone
+2202	Saz
+2203	Schalmei
+2204	SciFi
+2205	Scratch
+2206	Serpent
+2207	Shaker
+2208	Shawm
+2209	Shouts
+2210	Sitar
+2211	Skit
+2212	Sleeve Note Writer
+2213	Slide Trumpet
+2214	Spinet
+2215	Square Piano
+2216	String Orchestra
+2217	String Quartet
+2218	String Trio
+2219	Strings
+2220	Studio Dog
+2221	Stylist
+2222	Supervisor
+2223	Surdo
+2224	Suzuki sounds
+2225	Synfonia
+2226	Synthesiser
+2227	Synthesizer
+2228	Tambourine
+2229	Tanbur
+2230	Tape
+2231	Tar
+2232	Telinka
+2233	Theorbo
+2234	Theremin
+2235	Timpani
+2236	Tin Whistle
+2237	Tracklaying
+2238	Treble Viol
+2239	Triangle
+2240	Trombone
+2241	Trumpet
+2242	Tuba
+2243	Tzouras
+2244	Ud
+2245	Vibes
+2246	Vibraphone
+2247	Vielle
+2248	Vihuela
+2249	Viol
+2250	Viola
+2251	Viola da Gamba
+2252	Violin
+2253	Violoncello
+2254	Violone
+2255	Virginal
+2256	Vocal & Instrumental Ensemble
+2257	Vocal Ensemble
+2258	Vocals
+2259	Vocoder
+2260	Voice Over
+2261	Whistle
+2262	Wind Ensemble
+2263	Woodwind
+2264	Woodwinds
+2265	Words
+2266	Writer
+2267	Wurlitzer
+2268	Xylophone
+2269	Xylorimba
+2270	Zither
+2271	Zugtrompete
+2272	Ukulele
+3747	Pipe
+3748	Graphical Artist / Illustrator
+3749	Claps
+3921	Cajon
+1000066	Charango
+1002665	A&R
+1002666	Accompaniment
+1002667	Accoustic
+1002668	Additional
+1002669	Additional Dubs
+1002670	Additional Melodies
+1002671	Additional Overdubs
+1002672	Additional Tracking
+1002673	Aeolian Lovelies
+1002674	African
+1002675	Agogô
+1002676	Alboka
+1002687	Alto
+1002688	Alto Domra
+1002689	Ambient
+1002690	Analogue FX
+1002691	Aoud
+1002692	Arch
+1002693	Arco
+1002694	Arghul
+1002695	Assistant
+1002696	Associate Music
+1002697	Attributed To
+1002698	Audio
+1002699	Aulochrome
+1002700	Auricle Operator
+1002701	Baby
+1002702	Backward Cacophony
+1002703	Baixo
+1002704	Bajo Sexto
+1002705	Balafon
+1002706	Balalaika
+1002707	Band
+1002708	Bandura
+1002709	Bandurria
+1002710	Bansuri
+1002725	Bass Balalaika
+1002726	Bass Pedals
+1002727	Bass Station
+1002728	Bata
+1002729	Batterie
+1002730	Bayan
+1002731	Beatbox
+1002732	Bendhir
+1002733	Big Band
+1002734	Block
+1002735	Bombarde Bretonne
+1002736	Bombo
+1002737	Bontempi
+1002745	Boogie Box
+1002746	Bottles
+1002747	Bowed
+1002748	Bowed Gong
+1002749	Boy Alto
+1002750	Boy Treble Soloist
+1002751	Boys
+1002794	Coach
+1002795	Co-Composer
+1002796	Colour Correction
+1002797	Composition
+1002798	Compuestopor
+1002799	Computer
+1002800	Concert
+1002801	Continuo
+1002802	Contra
+1002803	Coordinator
+1002804	Coprophone
+1002805	Côro Copacabana
+1002806	Cow
+1002807	Craviola
+1002808	Created
+1002809	Creative
+1002810	Cruche
+1002811	Cuatro Venezuelano
+1002812	Cuica
+1002813	Cumbus
+1002814	Cuts
+1002885	Cymbals Overdubs
+1002886	Daff
+1002887	D'amore
+1002888	Darabukka
+1002889	Darbouka
+1002890	Dboki
+1002891	Decks
+1002892	Derbouka
+1002893	Dholak
+1002894	Dicaphone
+1002895	Dida
+1002896	Digital
+1002897	Direction Assistant
+1002898	'Dirty' Loop
+1002899	Dizi
+1002900	Doepfer
+1002901	Dog Alto
+1002902	Doira
+1002903	Donzo N'goni
+1002904	Doorbells
+1002905	Double
+1002906	Doudouk
+1002907	Drano
+1002908	Dranyem
+1002909	Drone Treatments
+1002910	Drones
+1002911	Drum
+1002912	Dub Organiser
+1002913	DVD
+1002914	DVD Audio
+1002915	DVD Compression
+1002916	Farfisa
+1002917	Finger
+1002918	Gaita
+1002919	Güira
+1002920	Guiro
+1002921	Hammer
+1002922	Hammond B3
+1002923	Hand
+1002924	Harmonised
+1002925	Hit
+1002926	Hoddu
+1002927	Hosepipe
+1002965	Hubcapaphone
+1002966	Idu
+1002967	Ilimba
+1002968	Illumination
+1002969	Infrasound
+1002970	Inspiration
+1002971	Instrument
+1002972	Jan-Blok
+1002973	Jarana
+1002974	Jembe
+1002975	Jenbe
+1002976	Jug
+1002977	Juggles
+1002978	Juno
+1002979	Jupiter
+1002980	Kachichi
+1002981	Kalimba
+1002982	Kaliuka
+1002983	Kanjira
+1002984	Kanoun
+1002985	Kawala
+1002986	Knuckles
+1002987	Kobuz
+1002988	Komok
+1002989	Konun
+1002990	Kooky Shit
+1002991	Kora
+1002992	Korg
+1002993	Ku-cheng
+1002994	Kurzweil
+1002995	Laptop
+1002996	Latin
+1002997	Lead
+1003025	Leona
+1003045	Lirone
+1003046	Live
+1003065	Live Effects
+1003066	Local Lyrics
+1003067	Logic
+1003068	Lowrey
+1003069	Machine
+1003070	Madal
+1003071	Madeiras
+1003085	Mandolele
+1003105	Mandolino
+1003106	Maracas
+1003107	Mariachi
+1003108	Marimbaphone
+1003109	Marxophone
+1003125	Mazhar
+1003126	MD
+1003127	Megamix Mix
+1003128	Megaphone
+1003129	Mezmar
+1003130	Mid Section Bass
+1003131	Miniature
+1003132	Mix Down
+1003145	Mizmar
+1003146	Mohan Veena
+1003147	Morsing
+1003148	Moule
+1003149	Mouth
+1003165	Mridangam
+1003166	Music Box
+1003167	Music Series
+1003185	Musical
+1003186	Nay
+1003187	Ney
+1003188	N'goni
+1003189	Noan
+1003190	NULL
+1003205	Nyatiti
+1003206	Oberheim
+1003207	Ocarina
+1003208	Omnichord
+1003209	Operatics
+1003225	Optigon
+1003226	Orchestral Contractor
+1003227	Orchestral Director
+1003228	Orchestral Fixer
+1003245	Orpharion
+1003246	Oud
+1003247	Outro
+1003248	Overdubs
+1003249	Overdubs Assistant
+1003250	Pad
+1003265	Pakhawaj
+1003266	Palmas
+1003267	Palos De Txalaparta
+1003268	Pandeiro
+1003269	Papoose
+1003270	Penny Owsley
+1003271	Photography
+1003272	Pianet
+1003273	Piccolo Bongos
+1003274	Pipa
+1003275	Pizzicato
+1003276	Plastic Tube
+1003277	Polymoog
+1003278	Pots and Pans
+1003279	Premix
+1003285	Rolling
+1003286	Ruined
+1003287	Sabar
+1003288	Safâra
+1003305	Sampo
+1003306	Santoor
+1003325	Sarangi
+1003326	Sarod
+1003327	Sato
+1003328	Score
+1003345	Pre-Production
+1003346	Processing
+1003347	Project
+1003348	Prompt
+1003349	Prophet
+1003385	Pump
+1003386	Quena
+1003387	Quenacho
+1003388	Quicka
+1003389	Quijada
+1003390	Rababah
+1003405	Radio
+1003406	Rain Sticks
+1003407	Raygun
+1003408	Recorded By
+1003425	Reco-reco
+1003426	Re-Edit
+1003427	Remastering
+1003428	Remix Engineer
+1003445	Repeater
+1003446	Repinique
+1003447	Repique de Mao
+1003448	Repiques
+1003449	Requinto
+1003465	Resonator
+1003466	Reverse Bass
+1003467	Rhythm Box
+1003468	Rhythm Stick
+1003485	Ride
+1003486	Rik
+1003487	Riq
+1003488	Roland 303
+1003489	Roland Paraphonic
+1003505	Scratching
+1003506	Screams
+1003507	Second
+1003508	Section
+1003509	Segment
+1003510	Sentir
+1003525	Sequenced
+1003526	Sgira
+1003527	Shakuhachi
+1003545	Shekere
+1003546	Shelltone
+1003547	Shortwave Radio
+1003548	Shruti Box
+1003549	Sicus
+1003550	Sintir
+1003551	Sleigh
+1003565	Snare Loop
+1003566	Solina
+1003567	Solo
+1003568	Sound
+1003569	Sound Effects
+1003570	Sound Manipulator
+1003571	Sound Restoration
+1003572	Soundscapes
+1003573	Soundtrack
+1003574	Sountrack Associate Music
+1003585	Sousaphone
+1003586	Special
+1003587	Special Recording
+1003588	Spoken Voice
+1003589	Spoons
+1003590	Stage
+1003591	Stapleton3
+1003592	Stick
+1003593	String FX
+1003605	String Synthesizer
+1003606	Stripped
+1003607	Studio
+1003608	Stylophone
+1003625	Suffâra
+1003626	Sugarcuts
+1003627	Sundries
+1003628	Surdu
+1003629	Surround Sound
+1003645	Synclavier
+1003646	Syncussion
+1003647	Syndrums
+1003648	Synth Filter
+1003649	Tabl Baladi
+1003665	Tabla
+1003666	Taconeo
+1003667	Talkbox
+1003668	Talker
+1003669	Tambora
+1003670	Tamborim
+1003671	Tambura
+1003685	Tam-Tam
+1003686	Tanpura
+1003687	Tap Dance
+1003688	Tape Operator
+1003689	Tarol
+1003690	Technical
+1003691	Teeth
+1003692	Telephone Voice
+1003705	Temple Blocks
+1003706	Tenor
+1003707	Tenor Rebec
+1003708	Tenor Viol
+1003709	Tere
+1003710	Three Stringed Stick
+1003711	Thunderstorm
+1003725	Timba
+1003726	Timbales
+1003727	Timpani Orchestral
+1003728	Timple
+1003729	Tinaja
+1003730	Tracked
+1003745	Train
+1003746	Transforming
+1003747	Treatment
+1003748	Treatments
+1003749	Treble Rebec
+1003750	Tres
+1003751	Triggered Strings
+1003765	Stapletone
+1003785	Brass Explosion
+1003786	Breaks
+1003787	Brush
+1003788	Brushes
+1003789	Bucket
+1003790	Buffo
+1003791	Button
+1003792	Cabasa
+1003793	Caja
+1003794	Cale
+1003795	Callebasse
+1003796	Calliope
+1003805	Carcabou
+1003806	Cardboard Box
+1003807	Cardboard Tube
+1003808	Carillon
+1003809	Casio
+1003810	Cavaquinho
+1003811	Celeste
+1003812	Celtic
+1003813	Cencerro
+1003814	Chains
+1003815	Chair
+1003816	Chamber Orchestra
+1003817	Chamberlain
+1003818	Chanter
+1003819	Chapman Stick
+1003820	Chat
+1003821	Chatan
+1003822	Chekeré
+1003825	Cheng
+1003826	Children's
+1003827	Children's Voice
+1003828	Chirya Tarang
+1003845	Chucalho
+1003846	Clap Sticks
+1003847	Claptrap
+1003848	Claves
+1003849	Claypot
+1003850	Clogs
+1003865	Trikitixa
+1003866	Tubular
+1003867	Tumbas
+1003868	Tuna
+1003869	Turntables
+1003870	Txalaparta
+1003871	Tympanon
+1003885	V.C.S.3
+1003886	Valiha
+1003887	Vibrachimes
+1003888	Vibraslap
+1003889	Vibrators
+1003890	Viola DaGamba
+1003891	Viola D'Amore
+1003892	Vocal
+1003893	Vocal Recording
+1003905	Vocorgan
+1003906	Voice
+1003907	Wah Wah
+1003908	Wailing
+1003909	Wasp
+1003910	Water
+1003911	Wave
+1003912	Weissenborne
+1003913	Wind
+1003914	Wood Block
+1003915	Yang Qin
+1003916	Yembé
+1003925	Zampoña
+1003926	Zapateado
+1003927	Zarb
+1003928	Zeze
+1003929	Zils
+1004352	Album Sequencer
+1004353	Announcer
+1004354	Appregiator
+1004355	Author
+1004356	Backline
+1004357	Baconium
+1004358	Cantor
+1004359	Compiler
+1004361	Concertina
+1004363	Contractor
+1004366	Copier
+1004367	Copyist
+1004368	Cornett
+1004369	Creator
+1004371	Declaimer
+1004374	Dulcian
+1004375	Esraj
+1004377	Graphics
+1004379	Hosted By
+1004380	Jaleo
+1004381	Kazoo
+1004382	Khene
+1004383	Magrouna
+1004384	Marching Band
+1004385	Master of Ceremonies
+1004386	Master Of The Music
+1004387	Mellophone
+1004389	Mey
+1004390	Miscellaneous
+1004391	Noises
+1004393	Publisher
+1004394	Reader
+1004396	Rhythms
+1004397	Saw
+1004398	Shenai
+1004399	Sheng
+1004400	Sounds
+1004401	Special Guest
+1004402	Squeezebox
+1004404	Technician
+1004405	Transcriber
+1004406	Translator
+1004407	Vichitra Veena
+1004408	Voices
+1004409	Washboard
+1004465	Assistant
+1004466	Protools
+1004505	Coordinator
+1004506	Reeds
+1006425	Triangulo
+1006426	Repique
+1006427	Violão
+1006428	Guitarra
+1006429	Cavaquinho
+1006430	Cavaquinho com Bandolim
+1006431	Bandolim
+1006432	Coro
+1006433	Ganzá
+1006434	Cuíca
+1006435	Agogô
+1006436	Pandeiro
+1006437	Reco-Reco
+1006438	Tamborim
+1006439	Sopro
+1006440	Violino
+1006705	String Arranger
+1008385	Sousaphone
+1008725	Talkbox
+1009105	Keytar
+1009125	Guitarviol
+1009605	Continuum
+1010025	Dance Company
+1010026	Presenter
+1010125	Intérprete
+1010145	Requinto Jarocho

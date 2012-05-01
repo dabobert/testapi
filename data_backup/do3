@@ -1,0 +1,15 @@
+drop table wmg_artist;
+drop table wmg_asset;
+drop table wmg_asset_work;
+drop table wmg_component;
+drop table wmg_contract;
+drop table wmg_product;
+drop table wmg_project;
+drop table wmg_rights;
+drop table wmg_rights_territories;
+drop table wmg_roles;
+drop table wmg_social_media;
+drop table wmg_talent;
+drop table wmg_talent_role_identity;
+drop table wmg_websites;
+drop table wmg_work;

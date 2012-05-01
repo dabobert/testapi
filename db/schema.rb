@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427143135) do
+ActiveRecord::Schema.define(:version => 20120430193845) do
 
   create_table "annotation", :force => true do |t|
     t.integer  "editor",    :null => false
@@ -1264,7 +1264,7 @@ ActiveRecord::Schema.define(:version => 20120427143135) do
     t.string  "gaid_type",        :limit => 10
     t.string  "display_title"
     t.string  "category",         :limit => 43
-    t.string  "type",             :limit => 40
+    t.string  "asset_type",       :limit => 40
     t.string  "sub_type",         :limit => 40
     t.string  "major_genre",      :limit => 40
     t.string  "play_length",      :limit => 15

@@ -1,0 +1,31 @@
+create table wmg_artist (ARTIST_ID int, ARTIST_NAME varchar(255), COUNTRY_OF_ORIGIN varchar(3),  GENRE varchar(20));
+
+create table wmg_asset (ID int, ARTIST_ID int, PROJECT_ID int, GAID varchar(33), GAID_TYPE varchar(10),DISPLAY_TITLE varchar(255), CATEGORY varchar(43), TYPE varchar(40), SUB_TYPE varchar(40),MAJOR_GENRE varchar(40),PLAY_LENGTH varchar(15),REPERTOIRE_OWNER varchar(100));
+
+create table wmg_asset_work (ASSET_ID int, WORK_ID varchar(16));
+
+create table wmg_component (ID int, PARENT_PRODUCT_ID int, ASSET_ID int, UNIT_NUMBER int, SIDE int, SEQUENCE int);
+
+create table wmg_contract (CONTRACT_ID varchar(16), CONTRACT_TYPE varchar(30), CONTRACT_NAME varchar(200), START_DATE varchar(20), END_DATE varchar(20), ENTITY_ID int ,ENTITY varchar(20));
+
+create table wmg_product ( ID int, ARTIST_ID int, PROJECT_ID int, GPID varchar(33) ,GPID_TYPE varchar(20), DISPLAY_TITLE varchar(255), CATEGORY varchar(40), TYPE varchar(40),SUB_TYPE varchar(40),PRODUCT_MEDIA_TYPE varchar(40),MAJOR_GENRE varchar(40),FIRST_GLOBAL_RELEASE_DATE varchar(20),MARKETING_OWNER varchar(100));
+
+create table wmg_project (PROJECT_ID int, CONTRACT_ID varchar(16), PROJECT_NM varchar(200),FIRST_RELEASE_DATE varchar(20),BUDGET varchar(100),FINANCIAL_COMPANY varchar(100),PROFIT_CENTER varchar(100));
+
+
+
+create table wmg_rights (ID int, RIGHT_TYPE varchar(30),PERMISSION_TYPE varchar(30), GRANT_DESC varchar(50), CODE varchar(30),EFFECTIVE_FROM_DATE varchar(30),EFFECTIVE_TO_DATE varchar(30),NOTES varchar(50),ENTITY varchar(50),ENTITY_ID varchar(33), OWNERSHIP_PERCETAGE varchar(30),CLAIM_PERCETAGE varchar(30));
+
+create table wmg_rights_territories (CODE varchar(15), NAME text);
+
+create table wmg_roles (ROLE_ID int, ROLE_NAME varchar(30));
+
+create table wmg_social_media (SOCIAL_MEDIA_ID int, ACCOUNT_TYPE varchar(30),ACCOUNT_ID varchar(130),ARTIST_ID int,TALENT_ID int);
+
+create table wmg_talent (PARTICIPANT_ID int, NAME varchar(255),BIRTHDATE varchar(30),EMAIL varchar(60), HOME_PHONE varchar(20), BUSINESS_PHONE varchar(30), CELL_PHONE varchar(30), ADDRESS_ID int);
+
+create table wmg_talent_role_identity ( ID int, TALENT_ID int, ROLE_CODE int, ENTITY varchar(30), ENTITY_ID varchar(33));
+
+create table wmg_websites (TALENT_WEBSITE_ID int, URL varchar(130), WEBSITE_NAME varchar(130),TALENT_ID int,ARTIST_ID int);
+
+create table wmg_work (ID varchar(50), CONTRACT_ID varchar(16), PROJECT_ID int, ISWC varchar(30), TITLE varchar(255),TYPE varchar(30), YEAR int, LANGUAGE varchar(30), ESTIMATED_PUBLIC_DOMAIN_DATE varchar(30));

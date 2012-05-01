@@ -3,6 +3,7 @@ class WmgProduct < ActiveRecord::Base
   include GcdmAssociations
   
   self.table_name = 'wmg_product'
+  self.primary_key = 'id'
   
   belongs_to :wmg_artist, :foreign_key=>"artist_id"
   belongs_to :project, :class_name=>"WmgProject", :foreign_key=>"project_id"
@@ -16,14 +17,13 @@ class WmgProduct < ActiveRecord::Base
   def response(depth=3)
     @adjacencies  = Array.new
     @other_nodes  = Array.new
-=begin
+
     if depth > 0
       begin
-        self.iterate(self.products, (depth-1))
+        self.iterate(self.assets, (depth-1))
       rescue
       end
     end
-=end
     self.data+self.other_nodes
   end
 end

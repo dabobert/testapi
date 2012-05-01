@@ -1,5 +1,21 @@
 class Debug
+  require 'csv'
+  
   attr_accessor :ancestors, :data, :to_replace
+  
+  def self.fix
+    index=0
+    CSV.foreach("/Users/robertjenkins/Desktop/fixer.csv") do |row|
+      puts index+=1
+      prod = WmgProduct.find(row[0])
+      prod.project_id=row[2]
+      prod.save
+    end
+  end
+  
+  def self.tra
+    #Debug.wmggd.
+  end
   
   
   def self.d

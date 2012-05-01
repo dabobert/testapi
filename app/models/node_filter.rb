@@ -11,9 +11,6 @@ class NodeFilter
     
     @filters.each do |filter|
       @data.each_index do |pos|
-
-
-puts filter       
         value = @data[pos]
 
 
@@ -33,8 +30,6 @@ puts " pos=>#{pos}"
         clone.delete(:adjacencies)
         @ancestors[(value[:data][:gcdm_type])] = clone
       end
-
-puts  @to_replace.inspect
 
       
       @data.each_index do |pos|
@@ -92,6 +87,9 @@ puts  @to_replace.inspect
       when "work"
         "contract"
       when "project"
+        puts "=======looking into ancestors"
+        puts " #{hash.inspect}"
+        puts " #{@ancestors.inspect}"
         if hash[:data]["$type"] == "circle"
       	  "contract"
       	else
