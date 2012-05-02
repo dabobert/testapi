@@ -107,7 +107,8 @@ module NodeTools
       else
         obj = object.instance_eval(member_fn)
       end
-
+      
+      Debug.echo obj.class.name
       self.adjacencies << self.make_adjacency(obj)
       self.other_nodes += obj.response(depth-1).flatten
     end
