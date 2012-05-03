@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(:version => 20120430193845) do
 
+  create_table "Foo", :force => true do |t|
+    t.string "text", :limit => 1024
+  end
+
   create_table "annotation", :force => true do |t|
     t.integer  "editor",    :null => false
     t.text     "text"
@@ -1078,6 +1082,11 @@ ActiveRecord::Schema.define(:version => 20120430193845) do
     t.string "name", :null => false
   end
 
+  create_table "release_group_types", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "release_label", :force => true do |t|
     t.integer  "release",        :null => false
     t.integer  "label"
@@ -1253,7 +1262,6 @@ ActiveRecord::Schema.define(:version => 20120430193845) do
     t.string  "artist_name"
     t.string  "country_of_origin", :limit => 3
     t.string  "genre",             :limit => 20
-    t.integer "mb_id"
   end
 
   create_table "wmg_asset", :id => false, :force => true do |t|
@@ -1363,7 +1371,6 @@ ActiveRecord::Schema.define(:version => 20120430193845) do
     t.string  "business_phone", :limit => 30
     t.string  "cell_phone",     :limit => 30
     t.integer "address_id"
-    t.integer "mb_id"
   end
 
   create_table "wmg_talent_role_identity", :id => false, :force => true do |t|

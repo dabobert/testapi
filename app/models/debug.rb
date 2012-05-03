@@ -3,6 +3,33 @@ class Debug
   
   attr_accessor :ancestors, :data, :to_replace
   
+  def self.ext
+    params = {:depth=>"0", :filters=>"asset,work,contract", :data_set=>"1", :callback=>"_jqjsp", "_1336074387947"=>"", :id=>"van halen"}
+    @depth = params[:depth].to_i
+    @filters = params[:filters] unless params[:filters].blank?
+    @search_term = params[:id]
+    @data_set = params[:data_set].to_i
+
+    case @data_set
+    when 0
+      @object = ArtistName.seek(@search_term) || ReleaseName.seek(@search_term)
+    when 1
+      @object = WmgTalent.seek(@search_term) || WmgArtist.seek(@search_term)
+    end
+
+    if @object.blank?
+      status    = 0
+      descr     = "no data set returned"
+      data      = nil
+    else
+      status    = 1
+      descr     = "OK"
+      data = @object.origin(@depth)
+    end
+    data
+  end
+  
+
   def self.aa
     data =DataSet.d7
     dest = Array.new
