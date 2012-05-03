@@ -10,7 +10,7 @@ module NodeTools
     return nil if id.blank?
     data.each_index do |pos|
       #puts "====#{pos}"
-      return pos if (data[pos] != nil && data[pos][:id] == id)
+      return pos if (data[pos] != nil and data[pos][:id] == id)
     end
     return false
   end
@@ -28,13 +28,13 @@ module NodeTools
   end
   
   def make_adjacency(obj)
-    if self.respond_to?(:gcdm_object) && not(self.gcdm_object.blank?)
+    if self.respond_to?(:gcdm_object) and not(self.gcdm_object.blank?)
       from_gid = self.gcdm_object.gid
     else
       from_gid = self.gid
     end
 
-    if obj.respond_to?(:gcdm_object) && not(obj.gcdm_object.blank?)
+    if obj.respond_to?(:gcdm_object) and not(obj.gcdm_object.blank?)
       to_gid = obj.gcdm_object.gid
     else
       to_gid = obj.gid
@@ -63,7 +63,7 @@ module NodeTools
   
   def data
     #puts "==#{self.name}===#{self.class}==#{@depth}==="
-    if self.respond_to?(:gcdm_object) && not(self.gcdm_object.blank?)
+    if self.respond_to?(:gcdm_object) and not(self.gcdm_object.blank?)
       gcdm_response = self.gcdm_object.response(@depth)
       color_value = self.gcdm_object.color
       shape_value = self.gcdm_object.shape
