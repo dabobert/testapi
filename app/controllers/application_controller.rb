@@ -60,6 +60,8 @@ class ApplicationController < ActionController::Base
       @depth = [NodeFilter.assign_depth(@filters), @depth].compact.max
     end
     
+    Debug.echo "nil? #{@object.blank?}"
+    
     if @object.blank?
       status    = 0
       descr     = "no data set returned"
@@ -69,8 +71,8 @@ class ApplicationController < ActionController::Base
       descr     = "OK"
       data = @object.origin(@depth)
     end
-    
-    data  = NodeFilter.new(data).filter(@filters) unless @filters.blank?
+
+    data  = NodeFilter.new(data).filter(@filters) unless (@filters.blank? or data.blank?)
 
     @response =
       {
