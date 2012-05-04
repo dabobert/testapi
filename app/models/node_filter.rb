@@ -9,7 +9,7 @@ class NodeFilter
 
 #this can ONLY work if filters are ONLY used within the wmg dataset
 #=begin 
-    depths = {"right"=>11, "asset"=>9, "product"=>7, "project"=>5, "contract"=>3}
+    depths = {"right"=>11, "asset"=>9, "product"=>7, "project"=>5, "contract"=>3, "default"=>3}
     filters.each do |key|
       depths.delete(key)
     end
