@@ -17,7 +17,10 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  host: 10.80.69.79
+  adapter: postgresql
+  encoding: unicode
+  database: musicbrainz_db
   pool: 5
-  timeout: 5000
+  username: musicbrainz
+  password: musicbrainz

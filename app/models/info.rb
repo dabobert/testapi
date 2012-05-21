@@ -3,7 +3,7 @@ class Info
   require 'cgi'
   
   def self.get(userid, mapname)
-    response = Net::HTTP.get_response(URI.parse("http://mywmg.vcap-wmg.me/UserData/Map?userid=#{CGI.escape(userid)}&mapname=#{CGI.escape(mapname)}")).body
+    response = Net::HTTP.get_response(URI.parse("http://mywmg.wmg-int.wa1.wfabric.com/UserData/Map?userid=#{CGI.escape(userid)}&mapname=#{CGI.escape(mapname)}")).body
     
     if response.blank?
       response
